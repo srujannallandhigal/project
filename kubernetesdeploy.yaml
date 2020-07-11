@@ -1,0 +1,13 @@
+---
+
+- hosts: 172.31.70.228
+  become: yes
+  tasks:
+    - name: copying file.
+      copy:
+        src: kubernetes-deploy.sh
+        dest: /root
+    - name: permission change
+      shell: chmod +x /root/kubernetes-deploy.sh
+    - name: executing file
+      shell: /root/kubernetes-deploy.sh
